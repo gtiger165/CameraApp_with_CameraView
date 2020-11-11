@@ -77,7 +77,7 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
                     break;
             }
 
-            File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "temp_picture." + ext);
+            File file = new File(getFilesDir(), "temp_picture." + ext);
 
             CameraUtils.writeToFile(pictureResult.getData(), file, new FileCallback() {
                 @Override

@@ -44,20 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (getIntent() != null) {
             if (getIntent().getStringExtra("get_uri") != null) {
                 Uri uri = Uri.parse(getIntent().getStringExtra("get_uri"));
+                Log.d(TAG, "onCreate: uri -> " + uri.toString());
                 String path = getFilePathFromUri(this, uri);
-//                String[] filePathColumn = {MediaStore.Images.Media._ID};
-//
-//                Cursor cursor = getContentResolver().query(uri, filePathColumn,
-//                        null, null, null);
-//                assert cursor != null;
-//                cursor.moveToFirst();
-//                int columnIndex = cursor.getColumnIndexOrThrow(filePathColumn[0]);
-//
-//                String mediaPath = cursor.getString(columnIndex);
-//                Log.d(TAG, "onActivityResult: media path -> " + mediaPath);
 
                 tvPath.setText("Uri Path : " + path);
-//                cursor.close();
             }
         }
     }
@@ -71,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static String getFilePathFromUri(Context c, Uri u) {
         String fileName = getFileName(u);
-        File directory = new File(c.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "/absen_foto");
+        File directory = new File(c.getFilesDir(), "/absen_foto");
 
         if (!directory.exists())
             directory.mkdirs();
@@ -101,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private static int copystream(InputStream input, OutputStream output) throws Exception, IOException{
+    private static void copystream(InputStream input, OutputStream output) throws Exception, IOException{
         byte[] buffer = new byte[BUFFER_SIZE];
 
         BufferedInputStream in = new BufferedInputStream(input, BUFFER_SIZE);
@@ -125,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e(e.getMessage(), String.valueOf(e));
             }
         }
-        return count;
     }
 
     private static String getFileName(Uri u) {

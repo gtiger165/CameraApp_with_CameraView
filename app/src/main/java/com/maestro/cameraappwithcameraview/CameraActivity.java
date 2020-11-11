@@ -74,15 +74,15 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
         if (v == ibFlash) {
-            switch (cv.getFlash()) {
-                case ON:
-                    ibFlash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_flash_on_24, null));
-                    break;
-                case OFF:
-                    ibFlash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_flash_off_24, null));
-                    break;
-                case AUTO:
-            }
+//            switch (cv.getFlash()) {
+//                case ON:
+//                    ibFlash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_flash_on_24, null));
+//                    break;
+//                case OFF:
+//                    ibFlash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_flash_off_24, null));
+//                    break;
+//                case AUTO:
+//            }
         }
     }
 }
